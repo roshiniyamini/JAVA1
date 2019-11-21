@@ -1,0 +1,22 @@
+package Collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrList {
+	public static void main(String[] args) {
+		List names= new ArrayList();
+		names.add("roshini");
+		names.add("yamini");
+		names.add("priya");
+		names.add("teja");
+		names.add("sneha");
+		for (Object str : names) {
+			System.out.println(str);
+			
+		}
+			
+		}
+	}
+
+

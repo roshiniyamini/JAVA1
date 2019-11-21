@@ -1,0 +1,12 @@
+package Collections;
+
+import java.sql.Date;
+
+public class DateEx1 {
+	public static void main(String[] args) {
+		Date obj=new Date(0);
+		System.out.println(obj);
+		
+	}
+
+}

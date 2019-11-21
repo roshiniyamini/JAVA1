@@ -1,0 +1,19 @@
+package Project;
+
+import java.util.Scanner;
+
+public class StudentMain {
+	public static void addStudent(){
+		Student objStudent=new Student();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Student number ");
+		objStudent.setSno(Integer.parseInt(sc.nextLine()));
+         System.out.println("Enter student Name");
+         objStudent.setName(sc.nextLine());
+         System.out.println("Enter student City ");
+         objStudent.setCity(sc.nextLine());
+         System.out.println("Enter cgp");
+         objStudent.setCgp(Integer.parseInt(sc.nextLine()));
+	}
+
+}

@@ -1,0 +1,60 @@
+package Project;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StudentDAO {
+	static List<Student> lstStudent=null;
+	static{
+		lstStudent=new ArrayList<Student>();	
+	}
+	public String addStudentDao(Student student){
+		lstStudent.add(student);
+		return "Student created Successfully....";
+	}
+	public List<Student> showStudentDao(){
+		return lstStudent;
+	}
+	public Student searchStudentDao(int sno){
+		Student objStudent=null;
+		for (Student student : lstStudent) {
+			if(student.getSno()==sno){
+				objStudent=student;
+			}
+			
+		}
+		return objStudent;
+	}
+	public String deleteStudentDao(int sno){
+		String result="";
+		Student student=searchStudentDao(sno);
+		if(student!=null){
+			lstStudent.remove(student);
+			result="Student Record Deleted Successfull.....";
+			
+		}else{
+			result="Student Record Not Found...";
+		}
+		return result;
+	}
+	public String updateStudentDao(Student objStudent){
+		Student student=searchStudentDao(objStudent.getSno());
+		String result="";
+		if(student!=null){
+			for (Student s : lstStudent) {
+				if(s.getSno()==objStudent.getSno()){
+					s.setName(objStudent.getName());
+					s.setCity(objStudent.getCity());
+					s.setCgp(objStudent.getCgp());
+					
+					}
+			}
+		
+		result="STUDENT RECORD IS UPDATED";
+	} else
+	{
+		result="STUDENT RECORD IS NOTUPDATED";
+	}
+	
+
+}

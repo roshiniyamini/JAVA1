@@ -1,0 +1,50 @@
+package com.hcl.project;
+
+public class Customer {
+	private int cusId;
+	private String custName;
+	private double annualPremium;
+	private double modalPremium;
+	private int paymentMode;
+	public int getCusId() {
+		return cusId;
+	}
+	public void setCusId(int cusId) {
+		this.cusId = cusId;
+	}
+	public String getCustName() {
+		return custName;
+	}
+	public void setCustName(String custName) {
+		this.custName = custName;
+	}
+	public double getAnnualPremium() {
+		return annualPremium;
+	}
+	public void setAnnualPremium(double annualPremium) {
+		this.annualPremium = annualPremium;
+	}
+	public double getModalPremium() {
+		return modalPremium;
+	}
+	public void setModalPremium(double modalPremium) {
+		this.modalPremium = modalPremium;
+	}
+	public int getPaymentMode() {
+		return paymentMode;
+	}
+	public void setPaymentMode(int paymentMode) {
+		this.paymentMode = paymentMode;
+	}
+	@Override
+	public String toString() {
+		return "Customer [cusId=" + cusId + ", custName=" + custName + ", annualPremium=" + annualPremium
+				+ ", modalPremium=" + modalPremium + ", paymentMode=" + paymentMode + "]";
+	}
+	public int getCusId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+
+}

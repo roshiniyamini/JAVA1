@@ -1,0 +1,76 @@
+package Project;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class StudentMain {
+	public static void updateStudent(){
+		Student objStudent=new Student();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Studentno");
+		objStudent.setSno(Integer.parseInt(sc.nextLine()));
+		System.out.println("Enter student Name");
+        objStudent.setName(sc.nextLine());
+        System.out.println("Enter student City ");
+        objStudent.setCity(sc.nextLine());
+        System.out.println("Enter cgp");
+        objStudent.setCgp(Double.parseDouble(sc.nextLine()));
+        StudentBAL obj=new StudentBAL();
+        System.out.println(obj.updateStudentBal(objStudent));
+		
+		
+		
+	}
+	public static void deleteStudent(){
+		int sno;
+		System.out.println("Enter student No");
+		Scanner sc=new Scanner(System.in);
+		sno=sc.nextInt();
+		StudentBAL obj=new StudentBAL();
+		System.out.println(obj.deleteStudentBal(sno));
+	}
+	public static void searchStudent(){
+		int sno;
+		System.out.println("Enter Student number  ");
+		Scanner sc=new Scanner(System.in);
+		sno=sc.nextInt();
+		StudentBAL obj=new StudentBAL();
+		Student student=obj.searchStudentBal(sno);
+		if(student==null){
+			System.out.println("Student record not found....");
+		}
+		else{
+			System.out.println(student);
+		}
+	}
+	public static void showStudent(){
+		StudentBAL obj=new StudentBAL();
+		List<Student> students=obj.ShowStudentBal();
+		for (Student student : students) {
+			System.out.println(student);
+			
+		}
+	}
+	public static void addStudent(){
+		Student objStudent=new Student();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Student number ");
+		objStudent.setSno(Integer.parseInt(sc.nextLine()));
+         System.out.println("Enter student Name");
+         objStudent.setName(sc.nextLine());
+         System.out.println("Enter student City ");
+         objStudent.setCity(sc.nextLine());
+         System.out.println("Enter cgp");
+         objStudent.setCgp(Double.parseDouble(sc.nextLine()));
+         StudentBAL obj=new StudentBAL();
+         try {
+			boolean res=obj.addStudentBal(objStudent);
+			if(res==true){
+				System.out.println("Student added Successfully");
+			}
+		} catch (StudentException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+}

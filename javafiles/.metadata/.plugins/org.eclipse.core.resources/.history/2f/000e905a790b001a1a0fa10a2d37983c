@@ -1,0 +1,66 @@
+package com.hcl.project;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Project.Student;
+
+public class CustomerDAO {
+	static List<Customer> lstCustomer=null;
+	static{
+		lstCustomer=new ArrayList<Customer>();	
+	}
+	public String addCustomerDao(Customer customer){
+		lstCustomer.add(customer);
+		return "customer created Successfully....";
+	}
+	public List<Customer> showCustomerDao(){
+		return lstCustomer;
+	}
+	public  Customer searchCustomerDao(int cusId){
+		Customer objCustomer=null;
+		for (Customer customer : lstCustomer) {
+			if(customer.getCustId()==custId){
+				objCustomer=customer;
+			}
+			
+		}
+		return objCustomer;
+
+}
+	public String deleteCustomerDao(int custId){
+		String result="";
+		Customer customer=searchCustomerDao(custId);
+		if(customer!=null){
+			lstCustomer.remove(customer);
+			result="Customer Record Deleted Successfull.....";
+			
+		}else{
+			result="Customer Record Not Found...";
+		}
+		return result;
+}
+	public String updateCustomerDao(Customer objCustomer){
+		Customer customer=searchCustomerDao(objCustomer.getCustId());
+		String result="";
+		if(customer!=null){
+			for (Customer s : lstCustomer) {
+				if(s.getCustId()==objCustomer.getCustId()){
+					s.setCustName(objCustomer.getCustName());
+					s.setAnnualPremium(objCustomer.getAnnualPremium());
+					s.setModalPremium(objCustomer.getModalPremium());
+					
+					
+					}
+			}
+		
+		result="Customer RECORD IS UPDATED";
+	} else
+	{
+		result="Customer RECORD IS NOTUPDATED";
+	}
+		return result;
+	
+
+}
+}
